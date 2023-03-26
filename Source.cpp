@@ -1,10 +1,10 @@
 /*
-* ÎÄ¼şÃû:Source.cpp
-* ÓÃÍ¾:¼ÓÃÜ½âÃÜ×Ö·û´®
-* Ê±¼ä:2023Äê3ÔÂ26ÈÕ
+* æ–‡ä»¶å:Source.cpp
+* ç”¨é€”:åŠ å¯†è§£å¯†å­—ç¬¦ä¸²
+* æ—¶é—´:2023å¹´3æœˆ26æ—¥
 * Github:https://github.com/Btongnian/cppencrypt
 * Gitee:https://gitee.com/kao_shan_yao/cppencrypt
-* ¨€----------------------------------------------------------------------------------------------------------¨€
+* â–ˆ----------------------------------------------------------------------------------------------------------â–ˆ
 * |          _____                      _____                      _____                      _____          |
 * |         /\    \                    /\    \                    /\    \                    /\    \         |
 * |        /||\    \                  /||\    \                  /||\____\                  /||\    \        |
@@ -26,18 +26,18 @@
 * |       \||||/    /                \|||\____\                  /|||/    /                \||||/    /       |
 * |        \||/    /                  \||/    /                  \||/    /                  \||/    /        |
 * |         \/____/                    \/____/                    \/____/                    \/____/         |
-* ¨€----------------------------------------------------------------------------------------------------------¨€
+* â–ˆ----------------------------------------------------------------------------------------------------------â–ˆ
 */
-#include <fstream>//¶ÁÈ¡ÎÄ¼ş°üº¬¿â
-#include <iostream>//Êä³ö×Ö·û°üº¬¿â
-#include <string>//×Ö·û´®°üº¬¿â
-#include <codecvt>//IO UTF-8ÎÄ¼ş
-#include <comutil.h>//IO UTF-8ÎÄ¼ş
-#pragma comment(lib, "comsuppw.lib")//IO UTF-8ÎÄ¼şµÄ¾²Ì¬¿â
+#include <fstream>//è¯»å–æ–‡ä»¶åŒ…å«åº“
+#include <iostream>//è¾“å‡ºå­—ç¬¦åŒ…å«åº“
+#include <string>//å­—ç¬¦ä¸²åŒ…å«åº“
+#include <codecvt>//IO UTF-8æ–‡ä»¶
+#include <comutil.h>//IO UTF-8æ–‡ä»¶
+#pragma comment(lib, "comsuppw.lib")//IO UTF-8æ–‡ä»¶çš„é™æ€åº“
 
-using namespace std;//È«¾ÖÃüÃû¿Õ¼ä
+using namespace std;//å…¨å±€å‘½åç©ºé—´
 
-//¼ÓÃÜº¯Êı:ĞèÒª¼ÓÃÜµÄ×Ö·û´® ÃØÔ¿
+//åŠ å¯†å‡½æ•°:éœ€è¦åŠ å¯†çš„å­—ç¬¦ä¸² ç§˜é’¥
 wstring encrypt(const wstring& plaintext, const wstring& key)
 {
 	wstring ciphertext = plaintext;
@@ -47,7 +47,7 @@ wstring encrypt(const wstring& plaintext, const wstring& key)
 	}
 	return ciphertext;
 }
-//½âÃÜº¯Êı:ĞèÒª½âÃÜµÄ×Ö·û´® ÃØÔ¿
+//è§£å¯†å‡½æ•°:éœ€è¦è§£å¯†çš„å­—ç¬¦ä¸² ç§˜é’¥
 wstring decrypt(const wstring& ciphertext, const wstring& key) {
 	wstring plaintext = ciphertext;
 	for (int i = 0; i < ciphertext.size(); ++i) {
@@ -56,7 +56,7 @@ wstring decrypt(const wstring& ciphertext, const wstring& key) {
 	return plaintext;
 }
 
-//Êä³öÎÄ¼ş:ÎÄ¼şÃû ×Ö·û´®
+//è¾“å‡ºæ–‡ä»¶:æ–‡ä»¶å å­—ç¬¦ä¸²
 void woutput(const string& filename, const wstring& outstr)
 {
 	wofstream out;
@@ -64,14 +64,14 @@ void woutput(const string& filename, const wstring& outstr)
 	out.open(filename);
 	if (!out.is_open())
 	{
-		cout << "Î´´ò¿ª\n";
+		cout << "æœªæ‰“å¼€\n";
 		system("pause");
 		exit(1);
 	}
 	out << outstr;
 	out.close();
 }
-//ÊäÈëÎÄ¼ş:ÎÄ¼şÃû ·µ»Ø:×Ö·û´®
+//è¾“å…¥æ–‡ä»¶:æ–‡ä»¶å è¿”å›:å­—ç¬¦ä¸²
 wstring winput(const string& filename)
 {
 	wifstream in;
@@ -79,7 +79,7 @@ wstring winput(const string& filename)
 	in.open(filename);
 	if (!in.is_open())
 	{
-		cout << "Î´´ò¿ª\n";
+		cout << "æœªæ‰“å¼€\n";
 		system("pause");
 		exit(1);
 	}
@@ -97,18 +97,18 @@ wstring winput(const string& filename)
 
 int main()
 {
-	string infilename("Î´¼ÓÃÜ.txt");//Î´¼ÓÃÜÎÄ¼şÃû
-	string outfilename("ÒÑ¼ÓÃÜ.data");//ÒÑ¼ÓÃÜÎÄ¼şÃû
-	wstring key = L"1234567890";//ÃØÔ¿ ¾¡Á¿Ê¹ÓÃÊı×Ö
+	string infilename("æœªåŠ å¯†.txt");//æœªåŠ å¯†æ–‡ä»¶å
+	string outfilename("å·²åŠ å¯†.data");//å·²åŠ å¯†æ–‡ä»¶å
+	wstring key = L"0";//ç§˜é’¥ å°½é‡ä½¿ç”¨è¾ƒå°æ•°å­—
 
-	//¶ÁÈ¡Î´¼ÓÃÜµÄUTF-8ÎÄ¼ş²¢¼ÓÃÜÊä³öµ½ĞÂµÄÎÄ¼ş
+	//è¯»å–æœªåŠ å¯†çš„UTF-8æ–‡ä»¶å¹¶åŠ å¯†è¾“å‡ºåˆ°æ–°çš„æ–‡ä»¶
 	woutput(outfilename, encrypt(winput(infilename), key));
 
-	//ÉèÖÃwcoutÊä³öwstring
+	//è®¾ç½®wcoutè¾“å‡ºwstring
 	std::locale loc("chs");
 	std::wcout.imbue(loc);
 
-	//¶ÁÈ¡ÒÑ¼ÓÃÜµÄUTF-8ÎÄ¼ş½âÃÜ²¢Êä³ö
+	//è¯»å–å·²åŠ å¯†çš„UTF-8æ–‡ä»¶è§£å¯†å¹¶è¾“å‡º
 	wcout << decrypt(winput(outfilename), key);
 	return 0;
 }
